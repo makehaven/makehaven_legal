@@ -1,0 +1,38 @@
+% Header material for MakeHaven
+% Conflict of Interest Policy
+
+% Set up our paper as US letter
+\usepackage{geometry}
+\geometry{letterpaper}
+
+
+% Set up fonts
+% Will Robertson's fontspec.sty can be used to simplify font choices.
+% To experiment, open /Applications/Font Book to examine the fonts provided on Mac OS X,
+% and change "Hoefler Text" to any of these choices.
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Hoefler Text}
+\setsansfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Gill Sans}
+\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+
+% Change the section styles to look like a legal doc
+\usepackage[compact,explicit]{titlesec}
+\titleformat{\section}[display]{\centering\large\scshape}{}{0pt}{Article\ \thesection:}[{\scshape #1}]
+\titleformat{\subsection}[display]{\bf}{}{0pt}{\thesubsection\quad#1}
+\titlespacing{\section}{0pt}{*6}{*2}
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+
+% Use alphanumeric enumeration
+\usepackage{enumitem}
+\setenumerate[0]{label=\textbf{\alph*}.}
+\renewcommand{\labelenumii}{\alph{enumii}}
+
+
+% Use references that know what page the referenced content is on
+\usepackage{varioref}
+\newcommand{\articlesecref}[2]{Article~\ref{#1}, Section~\vref{#2}} 
+
